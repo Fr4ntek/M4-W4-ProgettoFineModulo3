@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +8,7 @@ public class RotaryObstacle : MonoBehaviour
 {
     [SerializeField] private float _rotationSpeed = 90;
     [SerializeField] private float _pushForce = 10;
-
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float _upwardForce = 5f;
 
     void Update()
     {
@@ -24,14 +21,14 @@ public class RotaryObstacle : MonoBehaviour
         {
             Rigidbody rb = collision.collider.attachedRigidbody;
             Vector3 toPlayer = collision.transform.position - transform.position;
-            toPlayer.y = 0f;
 
-            // Direzione tangente = spinta laterale simulata dalla rotazione
-            Vector3 tangent = Vector3.Cross(Vector3.up, toPlayer.normalized); // rotazione su Y
-
-            // Applica impulso tangenziale
-            rb.AddForce(tangent * _pushForce, ForceMode.Impulse);
-            //rb.AddForce(Vector3.up * _pushForce, ForceMode.Impulse);
+            // Spinta laterale simulata dalla rotazione
+            Vector3 tangent = Vector3.Cross(Vector3.up, toPlayer.normalized);
+            Vector3 force = tangent.normalized * _pushForce + Vector3.up * _upwardForce;
+            //rb.AddForce(force, ForceMode.Impulse);
+            rb.velocity = force;
+            // disabilito per mezzo secondo il movimento cosi da fargli avere la spinta altrimenti resettavo tutto al frame successivo
+            collision.collider.GetComponent<PlayerController>().StartCoroutine("TemporarilyDisableMovement");
         }
     }
 }

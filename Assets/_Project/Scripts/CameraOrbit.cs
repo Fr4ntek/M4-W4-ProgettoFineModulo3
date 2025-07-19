@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CameraOrbit : MonoBehaviour
 {
-    [SerializeField] private Transform _target;         // Il player
-    [SerializeField] private float _distance = 10f;       // Distanza orbitale
-    [SerializeField] private float _xSpeed = 180f;       // Sensibilità orizzontale
-    [SerializeField] private float _ySpeed = 120f;       // Sensibilità verticale
-    [SerializeField] private float _yMin = -20f;         // Clamp verticale
+    [SerializeField] private Transform _target;       
+    [SerializeField] private float _distance = 10f;       
+    [SerializeField] private float _xSpeed = 180f;      
+    [SerializeField] private float _ySpeed = 120f;       
+    [SerializeField] private float _yMin = -20f;         
     [SerializeField] private float _yMax = 80f;
 
     private float _yaw; // mouse X
@@ -17,12 +17,8 @@ public class CameraOrbit : MonoBehaviour
     void Start()
     {
         if (_target == null) return;
-        //Vector3 angles = transform.eulerAngles;
-        //_yaw = angles.y;
-        //_pitch = angles.x;
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     void LateUpdate()

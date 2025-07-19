@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 6888294168635392744}
   - component: {fileID: 7502357542765327811}
   - component: {fileID: 351603766227224757}
-  m_Layer: 0
+  - component: {fileID: 8492924983711104553}
+  m_Layer: 6
   m_Name: MovingPlat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +277,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 598
+  m_VersionIndex: 601
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -381,6 +382,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &8492924983711104553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957096187798170149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a12056cbd3c8b441afff97262011a40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _positions:
+  - {fileID: 1900453079068999744}
+  - {fileID: 7354535717476771142}
+  - {fileID: 1807297017966318763}
+  - {fileID: 2440403500770206353}
 --- !u!1 &1304800246014793316
 GameObject:
   m_ObjectHideFlags: 0

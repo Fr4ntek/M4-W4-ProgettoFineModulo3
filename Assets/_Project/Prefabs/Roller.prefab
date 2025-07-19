@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4491967189295914354}
   - component: {fileID: 1456451359481739407}
   - component: {fileID: 8157276704445890152}
-  - component: {fileID: 3014611584312547254}
+  - component: {fileID: 3979725638920232791}
   m_Layer: 6
   m_Name: Roller
   m_TagString: Untagged
@@ -6020,7 +6020,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 60
+  m_VersionIndex: 81
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -6106,25 +6106,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2288915975748215075}
   m_Mesh: {fileID: 0}
---- !u!64 &3014611584312547254
-MeshCollider:
+--- !u!114 &3979725638920232791
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2288915975748215075}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522120f8c6850f34198330be30d32b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 45
+  _pushForce: 5

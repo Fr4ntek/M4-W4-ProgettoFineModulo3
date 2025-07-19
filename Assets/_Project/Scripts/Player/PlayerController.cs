@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private float v;
     private Vector3 _camForward;
     private Vector3 _camRight;
+    private bool _canMove = true;
 
     void Start()
     {
@@ -32,6 +34,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(_cameraTransform == null) return;
+
         h = Input.GetAxis("Horizontal");
         v = Input.GetAxis("Vertical");
 
@@ -40,18 +44,29 @@ public class PlayerController : MonoBehaviour
         _camForward.y = 0f;
         _camRight.y = 0f;
 
-        Vector3 direction = (v * _camForward + h * _camRight).normalized;
+        Vector3 direction = (v * _camForward + h * _camRight).normalized * _speed;
 
         if (direction.sqrMagnitude > 0.0001f)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), _rotationSpeed * Time.fixedDeltaTime);
         }
-        _rb.MovePosition(_rb.position + direction * (_speed * Time.fixedDeltaTime));
+        if (_canMove)
+        {
+            _rb.velocity = direction * _speed + new Vector3(0f, _rb.velocity.y, 0f);
+        }
+        
     }
 
     private bool CanJump()
     {
         if (_groundChecker.IsGrounded) return true;
         return false;
+    }
+
+    public IEnumerator TemporarilyDisableMovement()
+    {
+        _canMove = false;
+        yield return new WaitForSeconds(0.5f); 
+        _canMove = true;
     }
 }
