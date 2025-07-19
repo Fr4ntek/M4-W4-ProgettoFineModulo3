@@ -23,8 +23,6 @@ public class Roller : MonoBehaviour
             Vector3 tangent = Vector3.Cross(Vector3.down, centerToPlayer).normalized;
 
             rb.velocity += tangent * _pushForce * Time.deltaTime;
-            
-
         }
     }
 }

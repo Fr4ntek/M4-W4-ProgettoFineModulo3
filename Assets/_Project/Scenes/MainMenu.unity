@@ -707,7 +707,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1957245810}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ExitGame
+        m_MethodName: ExitGameMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1120,6 +1120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e859198f498c03248bdd48da3468893d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pauseUI: {fileID: 0}
 --- !u!4 &1957245811
 Transform:
   m_ObjectHideFlags: 0

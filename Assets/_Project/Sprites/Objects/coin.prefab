@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 533105730547434491}
-  - component: {fileID: 980924632288705034}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -33,27 +32,6 @@ Transform:
   - {fileID: 1813219422769092030}
   m_Father: {fileID: 4638243894570552757}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &980924632288705034
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136807355962931971}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0.21, z: 0}
 --- !u!1 &4009716325937776529
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,6 +41,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4390604387516112171}
+  - component: {fileID: 895746303046527029}
+  - component: {fileID: 8083380753837806680}
   m_Layer: 0
   m_Name: coin
   m_TagString: Untagged
@@ -87,6 +67,39 @@ Transform:
   - {fileID: 8380282131098884462}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &895746303046527029
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4009716325937776529}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: -0.23, z: 0}
+--- !u!114 &8083380753837806680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4009716325937776529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92fad77034314a840a8f9a9de3b7c02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4820800428881702927
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +157,7 @@ Transform:
   m_GameObject: {fileID: 5344340934760930967}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.476, y: -1.012, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

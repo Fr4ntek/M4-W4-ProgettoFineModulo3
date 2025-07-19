@@ -8,8 +8,11 @@ public class LifeController : MonoBehaviour
     [SerializeField] private int _maxHp = 100;
     [SerializeField] private int _hp;
     [SerializeField] private bool _fullHpOnStart = true;
+    [SerializeField] private GameManager _gameManager;
+    
 
     public UnityEvent<int, int> onLifeChanged;
+    private bool _isDead = false;
 
     private void Awake()
     {
@@ -21,8 +24,6 @@ public class LifeController : MonoBehaviour
         onLifeChanged?.Invoke(_hp, _maxHp); // aggiorna subito la UI
     }
 
-    public int GetHp() => _hp;
-    public int GetMaxHp() => _maxHp;
     public void SetHp(int amount)
     {
         _hp = Mathf.Clamp(amount, 0, _maxHp);
@@ -45,6 +46,10 @@ public class LifeController : MonoBehaviour
     public void Die()
     {
         Debug.Log("[LifeController] GameObject distrutto.");
+        if (_isDead) return;
+        _isDead = true;
+
+        if (_gameManager != null) _gameManager.ShowDeathUI();
         Destroy(gameObject);
     }
 }
