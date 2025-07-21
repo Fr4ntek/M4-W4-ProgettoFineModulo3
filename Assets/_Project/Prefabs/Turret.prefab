@@ -9508,7 +9508,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 222
+  m_VersionIndex: 228
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -15636,7 +15636,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 234
+  m_VersionIndex: 240
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -15824,7 +15824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPoint: {fileID: 5206140899345692694}
-  _fireRate: 1
+  _fireRate: 0.5
   _bulletPrefab: {fileID: -6763057457646048282, guid: 49c77da9e161fa3479f675ce7340efde, type: 3}
   _parent: {fileID: 0}
 --- !u!65 &5709395862512796407
@@ -15846,8 +15846,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 19.435226, y: 1, z: 8.778748}
-  m_Center: {x: 9.217613, y: 0, z: 0.51464844}
+  m_Size: {x: 19.435226, y: 1, z: 10.304108}
+  m_Center: {x: 9.217613, y: 0, z: -0.24803162}
 --- !u!1 &8391185799361854333
 GameObject:
   m_ObjectHideFlags: 0
@@ -21868,7 +21868,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 219
+  m_VersionIndex: 225
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

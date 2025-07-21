@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5362b994dbb0d864dbef652f5bc1c8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
+  _speed: 6
   _rotationSpeed: 5
   _jumpForce: 6
   _groundChecker: {fileID: 0}
@@ -183,8 +183,8 @@ MonoBehaviour:
   _coinWarningMessage: {fileID: 0}
   _timerText: {fileID: 0}
   _countdownTime: 120
-  _lifeController: {fileID: 0}
-  _coinCount: 0
+  _gameManager: {fileID: 0}
+  _coinCount: 15
 --- !u!33 &7869705940345550220
 MeshFilter:
   m_ObjectHideFlags: 0

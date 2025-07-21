@@ -10,10 +10,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int _jumpForce = 5;
     [SerializeField] private GroundChecker _groundChecker;
     [SerializeField] private Transform _cameraTransform;
+    [SerializeField] private float _walkSpeed = 5f;
 
     private Rigidbody _rb;
-    private float h;
-    private float v;
+    public float Horizontal {get; private set;}
+    public float Vertical {get; private set;}
+    public bool IsRunning { get; private set;}
+    private Vector3 _direction;
     private Vector3 _camForward;
     private Vector3 _camRight;
     private bool _canMove = true;
@@ -26,38 +29,53 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump") && CanJump())
-        {
-            _rb.AddForce(transform.up * _jumpForce, ForceMode.Impulse);
-        }
-    }
+        if (_cameraTransform == null) return;
 
-    private void FixedUpdate()
-    {
-        if(_cameraTransform == null) return;
-
-        h = Input.GetAxis("Horizontal");
-        v = Input.GetAxis("Vertical");
+        // Movement
+        Horizontal = Input.GetAxis("Horizontal");
+        Vertical = Input.GetAxis("Vertical");
 
         _camForward = _cameraTransform.forward.normalized;
         _camRight = _cameraTransform.right.normalized;
         _camForward.y = 0f;
         _camRight.y = 0f;
 
-        Vector3 direction = (v * _camForward + h * _camRight).normalized * _speed;
+        _direction = (Vertical * _camForward + Horizontal * _camRight).normalized * _speed;
 
-        if (direction.sqrMagnitude > 0.0001f)
+        if (_direction.sqrMagnitude > 0.0001f)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), _rotationSpeed * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_direction), _rotationSpeed * Time.deltaTime);
         }
-        if (_canMove)
+
+        // Jump
+        if (Input.GetButtonDown("Jump") && Grounded())
         {
-            _rb.velocity = direction * _speed + new Vector3(0f, _rb.velocity.y, 0f);
+            _rb.AddForce(transform.up * _jumpForce, ForceMode.Impulse);
         }
-        
+
+        // Sprint
+        if (Input.GetKey(KeyCode.LeftShift) && Grounded()) 
+        {
+            _speed = _walkSpeed * 2;
+            IsRunning = true;
+        }
+        else
+        {
+            _speed = _walkSpeed;
+            IsRunning = false;
+        }
+
     }
 
-    private bool CanJump()
+    private void FixedUpdate()
+    {
+        if (_canMove)
+        {
+            _rb.velocity = _direction + new Vector3(0f, _rb.velocity.y, 0f);
+        }
+    }
+
+    private bool Grounded()
     {
         if (_groundChecker.IsGrounded) return true;
         return false;
@@ -66,7 +84,7 @@ public class PlayerController : MonoBehaviour
     public IEnumerator TemporarilyDisableMovement()
     {
         _canMove = false;
-        yield return new WaitForSeconds(0.5f); 
+        yield return new WaitForSeconds(1f); 
         _canMove = true;
     }
 }
