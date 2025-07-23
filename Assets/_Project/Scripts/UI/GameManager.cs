@@ -34,8 +34,7 @@ public class GameManager : MonoBehaviour
     public void ExitGamePauseMenu()
     {
         Time.timeScale = 1f;
-        AudioManager.Instance.Stop("Level1");
-        AudioManager.Instance.Stop("Level2");
+        AudioManager.Instance.StopAll();
         AudioManager.Instance.Play("MainMenu");
         SceneManager.LoadScene("MainMenu");
     }
@@ -45,16 +44,15 @@ public class GameManager : MonoBehaviour
         switch (sceneName)
         {
             case "Level1":
-                AudioManager.Instance.Stop("MainMenu");
+                AudioManager.Instance.StopAll();
                 AudioManager.Instance.Play(sceneName);
                 break;
             case "Level2":
-                AudioManager.Instance.Stop("Level1");
+                AudioManager.Instance.StopAll();
                 AudioManager.Instance.Play(sceneName);
                 break;
             case "MainMenu":
-                AudioManager.Instance.Stop("Level1");
-                AudioManager.Instance.Stop("Level2");
+                AudioManager.Instance.StopAll();
                 AudioManager.Instance.Play(sceneName);
                 break;
         }
@@ -70,12 +68,14 @@ public class GameManager : MonoBehaviour
     public void ShowDeathUI()
     {
         _deathUI.SetActive(true);
+        AudioManager.Instance.StopAll();
         Time.timeScale = 0f;
     }
 
     public void ShowVictoryUI()
     {
         _victoryUI.SetActive(true);
+        AudioManager.Instance.StopAll();
         Time.timeScale = 0f;
     }
 }
