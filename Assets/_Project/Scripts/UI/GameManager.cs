@@ -34,11 +34,30 @@ public class GameManager : MonoBehaviour
     public void ExitGamePauseMenu()
     {
         Time.timeScale = 1f;
+        AudioManager.Instance.Stop("Level1");
+        AudioManager.Instance.Stop("Level2");
+        AudioManager.Instance.Play("MainMenu");
         SceneManager.LoadScene("MainMenu");
     }
     public void ChangeScene(string sceneName)
     {
         Time.timeScale = 1;
+        switch (sceneName)
+        {
+            case "Level1":
+                AudioManager.Instance.Stop("MainMenu");
+                AudioManager.Instance.Play(sceneName);
+                break;
+            case "Level2":
+                AudioManager.Instance.Stop("Level1");
+                AudioManager.Instance.Play(sceneName);
+                break;
+            case "MainMenu":
+                AudioManager.Instance.Stop("Level1");
+                AudioManager.Instance.Stop("Level2");
+                AudioManager.Instance.Play(sceneName);
+                break;
+        }
         SceneManager.LoadScene(sceneName);
     }
 

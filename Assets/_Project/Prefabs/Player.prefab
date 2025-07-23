@@ -602,10 +602,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 6
   _rotationSpeed: 5
-  _jumpHeight: 3
+  _jumpHeight: 2
   _groundChecker: {fileID: 0}
   _cameraTransform: {fileID: 0}
-  _walkSpeed: 5
+  _walkSpeed: 4
   _onJump:
     m_PersistentCalls:
       m_Calls:
@@ -651,7 +651,6 @@ MonoBehaviour:
   _maxHp: 100
   _hp: 0
   _fullHpOnStart: 1
-  _gameManager: {fileID: 0}
   onLifeChanged:
     m_PersistentCalls:
       m_Calls:
@@ -714,7 +713,7 @@ MonoBehaviour:
   _coinWarningMessage: {fileID: 0}
   _godWarningMessage: {fileID: 0}
   _timerText: {fileID: 0}
-  _countdownTime: 60
+  _countdownTime: 120
   _gameManager: {fileID: 0}
   _coinCount: 0
 --- !u!114 &3490954769479915995

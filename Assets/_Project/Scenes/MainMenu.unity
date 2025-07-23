@@ -122,6 +122,71 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &181662426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 181662427}
+  - component: {fileID: 181662428}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &181662427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181662426}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -16.76685, y: 23.290518, z: -53.968742}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &181662428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181662426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0321efc5b157633478586460d00bef02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Level1
+    clip: {fileID: 8300000, guid: 514f688b256bf2842b96469cc768b675, type: 3}
+    volume: 0.01
+    loop: 1
+    source: {fileID: 0}
+  - name: Level2
+    clip: {fileID: 8300000, guid: 09008332918f0454fbec2eeb61602993, type: 3}
+    volume: 0.01
+    loop: 1
+    source: {fileID: 0}
+  - name: MainMenu
+    clip: {fileID: 8300000, guid: 602452215c7d3094388d17be3ffe1947, type: 3}
+    volume: 0.03
+    loop: 1
+    source: {fileID: 0}
+  - name: Coin
+    clip: {fileID: 8300000, guid: dfeae8dbb82dc4948a01c66928f6d97d, type: 3}
+    volume: 0.02
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &211776260
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,6 +1186,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseUI: {fileID: 0}
+  _deathUI: {fileID: 0}
+  _victoryUI: {fileID: 0}
 --- !u!4 &1957245811
 Transform:
   m_ObjectHideFlags: 0
@@ -1278,3 +1345,4 @@ SceneRoots:
   - {fileID: 716242314}
   - {fileID: 1218735593}
   - {fileID: 1957245811}
+  - {fileID: 181662427}

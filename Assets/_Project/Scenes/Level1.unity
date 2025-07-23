@@ -22649,10 +22649,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1919808040300629622, guid: 71fd3f0fe93ec274aa1c24589d88552c, type: 3}
-      propertyPath: _gameManager
-      value: 
-      objectReference: {fileID: 376572884}
     - target: {fileID: 3242081926971738177, guid: 71fd3f0fe93ec274aa1c24589d88552c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -22709,10 +22705,6 @@ PrefabInstance:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 376572884}
-    - target: {fileID: 5229398593966817093, guid: 71fd3f0fe93ec274aa1c24589d88552c, type: 3}
-      propertyPath: _countdownTime
-      value: 120
-      objectReference: {fileID: 0}
     - target: {fileID: 5229398593966817093, guid: 71fd3f0fe93ec274aa1c24589d88552c, type: 3}
       propertyPath: _coinCounterText
       value: 

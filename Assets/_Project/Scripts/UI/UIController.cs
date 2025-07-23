@@ -63,6 +63,7 @@ public class UIController : MonoBehaviour
     public void AddCoin(int amount)
     {
         _coinCount += amount;
+        AudioManager.Instance.Play("Coin");
         UpdateCoinUI();
     }
 
