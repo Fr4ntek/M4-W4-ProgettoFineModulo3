@@ -710,7 +710,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e2721449eb46040b89f865b489c8af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeLimit: 10
+  totalTime: 10
+  requiredCrouchTime: 5
 --- !u!1 &202796833
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,6 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pauseUI: {fileID: 904782907}
   _deathUI: {fileID: 583806662}
+  _victoryUI: {fileID: 770174827}
 --- !u!4 &202796835
 Transform:
   m_ObjectHideFlags: 0
@@ -2961,7 +2963,7 @@ Transform:
   m_GameObject: {fileID: 996631596}
   serializedVersion: 2
   m_LocalRotation: {x: 0.108607754, y: -0.13078469, z: 0.015276095, w: 0.9853255}
-  m_LocalPosition: {x: 19.191906, y: 17.492699, z: -29.482157}
+  m_LocalPosition: {x: -22.4, y: 17.492699, z: -60.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5579,6 +5581,10 @@ PrefabInstance:
     - target: {fileID: 5186903873296125378, guid: 71fd3f0fe93ec274aa1c24589d88552c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5229398593966817093, guid: 71fd3f0fe93ec274aa1c24589d88552c, type: 3}
+      propertyPath: _coinCount
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5229398593966817093, guid: 71fd3f0fe93ec274aa1c24589d88552c, type: 3}
       propertyPath: _timerText

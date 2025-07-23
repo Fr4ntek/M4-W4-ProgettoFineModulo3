@@ -4,33 +4,55 @@ using UnityEngine;
 
 public class RangeOfDeath : MonoBehaviour
 {
-    [SerializeField] private float _timeLimit = 10f;
-    
-    private bool _timerActive = false;
-    private bool _isCrouchedInTime = false;
-    private Coroutine _timerCoroutine;
+    [SerializeField] private float totalTime = 10f;
+    [SerializeField] private float requiredCrouchTime = 5f;
+
+    private float _crouchTimer = 0f;
+    private float _countdown = 0f;
+    private bool _challengeActive = false;
+
+    private PlayerController _playerController;
+    private UIController _uiController;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!_timerActive && other.CompareTag("Player"))
+        if (!_challengeActive && other.CompareTag("Player"))
         {
-            _timerActive = true;
-            _isCrouchedInTime = false;
-            _timerCoroutine = StartCoroutine(CountdownToDeath());
+            _playerController = other.GetComponent<PlayerController>();
+            _uiController = other.GetComponent<UIController>();
+            StartCoroutine(CrouchChallenge());
         }
     }
 
-    private IEnumerator CountdownToDeath()
+    private IEnumerator CrouchChallenge()
     {
-        Debug.Log("Timer partito: hai " + _timeLimit + " secondi per premere Crouch!");
-        yield return new WaitForSeconds(_timeLimit);
+        _challengeActive = true;
+        _countdown = 0f;
+        _crouchTimer = 0f;
 
-        if (!_isCrouchedInTime)
+        // Ha 10 secondi per premere Crouch e tenerlo premuto per 5 secondi per vincere
+        // altrimenti muore
+
+        while (_countdown < totalTime)
         {
-            Debug.Log("Tempo scaduto. Muori!");
-            //KillPlayer(); // o esegui un’animazione, carica una scena, ecc.
+            _countdown += Time.deltaTime;
+
+            if (_playerController.IsCrouching)
+            {
+                _crouchTimer += Time.deltaTime;
+            }
+
+            if (_crouchTimer >= requiredCrouchTime)
+            {
+                _uiController.ShowVictoryUI();
+                _challengeActive = false;
+                yield break;
+            }
+
+            yield return null;
         }
-        _timerActive = false;
+        _uiController.ShowDeathUI();
+        _challengeActive = false;
     }
 }
 

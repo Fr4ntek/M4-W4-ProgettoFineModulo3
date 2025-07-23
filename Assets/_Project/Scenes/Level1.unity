@@ -6761,6 +6761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pauseUI: {fileID: 95195625}
   _deathUI: {fileID: 1385394363}
+  _victoryUI: {fileID: 0}
 --- !u!1 &386510878
 GameObject:
   m_ObjectHideFlags: 0
@@ -22708,6 +22709,10 @@ PrefabInstance:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 376572884}
+    - target: {fileID: 5229398593966817093, guid: 71fd3f0fe93ec274aa1c24589d88552c, type: 3}
+      propertyPath: _countdownTime
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 5229398593966817093, guid: 71fd3f0fe93ec274aa1c24589d88552c, type: 3}
       propertyPath: _coinCounterText
       value: 

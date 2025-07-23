@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] GameObject _pauseUI;
     [SerializeField] GameObject _deathUI;
+    [SerializeField] GameObject _victoryUI;
 
     void Update()
     {
@@ -50,6 +51,12 @@ public class GameManager : MonoBehaviour
     public void ShowDeathUI()
     {
         _deathUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void ShowVictoryUI()
+    {
+        _victoryUI.SetActive(true);
         Time.timeScale = 0f;
     }
 }

@@ -107,8 +107,14 @@ public class UIController : MonoBehaviour
         _godWarningMessage.SetActive(false);
     }
 
-    public void CheckIfBowing()
+    public void ShowVictoryUI()
     {
-
+        _gameManager.ShowVictoryUI();
     }
+
+    public void ShowDeathUI()
+    {
+        _gameManager.ShowDeathUI();
+    }
+
 }
