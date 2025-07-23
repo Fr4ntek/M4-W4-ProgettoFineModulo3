@@ -12,13 +12,14 @@ public class UIController : MonoBehaviour
     [SerializeField] private Gradient _gradient;
     [SerializeField] private TextMeshProUGUI _coinCounterText;
     [SerializeField] private GameObject _coinWarningMessage;
+    [SerializeField] private GameObject _godWarningMessage;
     [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private float _countdownTime = 60f;
     [SerializeField] private GameManager _gameManager;
 
     public int _coinCount = 0;
     private float _timeLeft;
-    private bool _isRunning = false;
+    private bool _isTimeRunning = false;
     private LifeController _lifeController;
 
 
@@ -33,7 +34,7 @@ public class UIController : MonoBehaviour
     private void SetTimerUI()
     {
         _timeLeft = _countdownTime;
-        _isRunning = true;
+        _isTimeRunning = true;
     }
 
     void Update()
@@ -43,7 +44,7 @@ public class UIController : MonoBehaviour
 
     private void UpdateTimerUI()
     {
-        if (!_isRunning) return;
+        if (!_isTimeRunning) return;
         _timeLeft -= Time.deltaTime;
         _timeLeft = Mathf.Max(0f, _timeLeft);
 
@@ -54,7 +55,7 @@ public class UIController : MonoBehaviour
 
         if (_timeLeft <= 0f)
         {
-            _isRunning = false;
+            _isTimeRunning = false;
             _lifeController.Die();
         }
     }
@@ -95,4 +96,19 @@ public class UIController : MonoBehaviour
         _healthBarSprite.color = _gradient.Evaluate(_healthBarSprite.fillAmount);
     }
 
+    public void OnEntranceDoor()
+    {
+        StartCoroutine(ShowEntranceDoorMessage());
+    }
+    private IEnumerator ShowEntranceDoorMessage()
+    {
+        _godWarningMessage.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        _godWarningMessage.SetActive(false);
+    }
+
+    public void CheckIfBowing()
+    {
+
+    }
 }

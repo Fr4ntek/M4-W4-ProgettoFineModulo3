@@ -1,21 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _rotationSpeed = 5f;
-    [SerializeField] private int _jumpForce = 5;
+    [SerializeField] private int _jumpHeight = 3;
     [SerializeField] private GroundChecker _groundChecker;
     [SerializeField] private Transform _cameraTransform;
     [SerializeField] private float _walkSpeed = 5f;
+    [SerializeField] private UnityEvent _onJump;
+    [SerializeField] private UnityEvent<bool> _onCrouch;
 
     private Rigidbody _rb;
     public float Horizontal {get; private set;}
     public float Vertical {get; private set;}
     public bool IsRunning { get; private set;}
+    public bool IsCrouching { get; private set;}
     private Vector3 _direction;
     private Vector3 _camForward;
     private Vector3 _camRight;
@@ -50,7 +53,8 @@ public class PlayerController : MonoBehaviour
         // Jump
         if (Input.GetButtonDown("Jump") && Grounded())
         {
-            _rb.AddForce(transform.up * _jumpForce, ForceMode.Impulse);
+            _rb.AddForce(Vector3.up * Mathf.Sqrt(_jumpHeight * -2f * Physics.gravity.y), ForceMode.VelocityChange);
+            _onJump?.Invoke();
         }
 
         // Sprint
@@ -63,6 +67,19 @@ public class PlayerController : MonoBehaviour
         {
             _speed = _walkSpeed;
             IsRunning = false;
+        }
+
+        // Bow
+        if (Input.GetKey(KeyCode.LeftControl) && Grounded())
+        {
+            IsCrouching = true;
+            _onCrouch?.Invoke(IsCrouching);
+            _speed = 0f;
+        }
+        else
+        {
+            IsCrouching = false;
+            _onCrouch?.Invoke(IsCrouching);
         }
 
     }

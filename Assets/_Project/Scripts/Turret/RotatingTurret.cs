@@ -5,10 +5,6 @@ using UnityEngine;
 public class RotatingTurret : MonoBehaviour
 {
     [SerializeField] private Transform _target;
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
